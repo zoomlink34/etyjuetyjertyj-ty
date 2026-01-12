@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f4f4; padding: 40px; }
+        .card { background: white; padding: 20px; border-radius: 10px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        img { width: 50px; height: 50px; border-radius: 5px; margin-right: 15px; }
+        .btn-ok { background: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        #login { text-align: center; margin-top: 100px; }
+    </style>
+</head>
+<body>
+    <div id="login">
+        <h2>Admin Login</h2>
+        <input type="password" id="pass" placeholder="Password">
+        <button onclick="auth()">Login</button>
+    </div>
+
+    <div id="panel" style="display:none">
+        <h1>Pending Approvals</h1>
+        <div id="list"></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+    <script>
+        firebase.initializeApp({databaseURL: "https://m-legacy-5cf2b-default-rtdb.firebaseio.com/"});
+        const db = firebase.database();
+
+        function auth() {
+            if(document.getElementById('pass').value === "KAWSARahmed22@@") {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('panel').style.display = 'block';
+                load();
+            } else { alert("Wrong Password!"); }
+        }
+
+        function load() {
+            db.ref('pending').on('value', snap => {
+                const list = document.getElementById('list');
+                const data = snap.val();
+                list.innerHTML = data ? "" : "No pending slots.";
+                if(data) {
+                    Object.keys(data).forEach(id => {
+                        const item = data[id];
+                        list.innerHTML += `
+                            <div class="card">
+                                <div style="display:flex;align-items:center">
+                                    <img src="${item.imageUrl}">
+                                    <div>
+                                        <strong>Slot #${id} - ${item.companyName}</strong><br>
+                                        <small>${item.description}</small>
+                                    </div>
+                                </div>
+                                <button class="btn-ok" onclick="approve('${id}')">Approve</button>
+                            </div>
+                        `;
+                    });
+                }
+            });
+        }
+
+        function approve(id) {
+            db.ref('pending/' + id).once('value', snap => {
+                db.ref('pixels/' + id).set(snap.val()).then(() => {
+                    db.ref('pending/' + id).remove();
+                    alert("Approved!");
+                });
+            });
+        }
+    </script>
+</body>
+</html>
