@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>THE 1 BILLION PIXELS PLUS | PREMIER EDITION</title>
+    <title>THE 1 BILLION PIXELS PLUS</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
 </head>
 <body>
-
-<div class="glow-bg"></div>
 
 <header>
     <div class="glass-header">
@@ -17,6 +15,11 @@
         <div class="payment-pills">
             <span onclick="copyText('912221034')">BINANCE UID: 912221034 (COPY)</span>
             <span onclick="copyText('TTapBkTqrDnzHbWzek6wSBUTcJKFmR8Ws6')">USDT (TRC20): TTapB...Ws6 (COPY)</span>
+        </div>
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="FB"></a>
+            <a href="https://t.me" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="TG"></a>
+            <a href="https://wa.me/8801576940717" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WA"></a>
         </div>
     </div>
 </header>
@@ -27,19 +30,18 @@
         <canvas id="mainCanvas"></canvas>
     </div>
     <div id="tooltip" class="hidden">
-        <h4 id="tt-title">Loading...</h4>
-        <p id="tt-desc">Loading description...</p>
+        <h4 id="tt-title"></h4>
+        <p id="tt-desc"></p>
     </div>
 </main>
 
-<section class="action-zone">
-    <div class="glass-card">
-        <h3>OWN YOUR DIGITAL LEGACY</h3>
-        <p>Fixed 200x200 Slot | $20 USD | Promo on 3 Social Media Platforms</p>
-        <div class="btn-group">
-            <a href="order.html" class="neon-btn">RESERVE SLOT</a>
-            <a href="https://wa.me/8801576940717" class="wa-btn">WHATSAPP SUPPORT</a>
-        </div>
+<section class="floating-contact">
+    <div class="notice-bar">
+        📢 <strong>NOTICE:</strong> Reserve your 200x200 slot today! Contact WhatsApp for Social Media promo.
+    </div>
+    <div class="btn-group">
+        <a href="order.html" class="neon-btn">BUY PIXELS</a>
+        <a href="https://wa.me/8801576940717" class="wa-btn">WHATSAPP NOW</a>
     </div>
 </section>
 
@@ -49,16 +51,14 @@
 
 <script src="script.js"></script>
 <script>
-    // ১০০% কার্যকর কপি ফাংশন
     function copyText(text) {
-        const tempInput = document.createElement("input");
-        tempInput.value = text;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        tempInput.setSelectionRange(0, 99999); // মোবাইলের জন্য
+        const input = document.createElement("input");
+        input.value = text;
+        document.body.appendChild(input);
+        input.select();
         document.execCommand("copy");
-        document.body.removeChild(tempInput);
-        alert("Copied to clipboard: " + text);
+        document.body.removeChild(input);
+        alert("Copied: " + text);
     }
 </script>
 </body>
