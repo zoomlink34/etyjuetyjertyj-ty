@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>THE 1 BILLION PIXELS PLUS | PREMIER EDITION</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+</head>
+<body>
+
+<div class="glow-bg"></div>
+
+<header>
+    <div class="glass-header">
+        <h1 class="ai-title">THE 1 BILLION PIXELS PLUS</h1>
+        <div class="payment-pills">
+            <span onclick="copyText('912221034')">BINANCE UID: 912221034 (COPY)</span>
+            <span onclick="copyText('TTapBkTqrDnzHbWzek6wSBUTcJKFmR8Ws6')">USDT (TRC20): TTapB...Ws6 (COPY)</span>
+        </div>
+    </div>
+</header>
+
+<main id="viewport">
+    <div id="canvas-mover">
+        <canvas id="fireCanvas"></canvas>
+        <canvas id="mainCanvas"></canvas>
+    </div>
+    <div id="tooltip" class="hidden">
+        <h4 id="tt-title">Loading...</h4>
+        <p id="tt-desc">Loading description...</p>
+    </div>
+</main>
+
+<section class="action-zone">
+    <div class="glass-card">
+        <h3>OWN YOUR DIGITAL LEGACY</h3>
+        <p>Fixed 200x200 Slot | $20 USD | Promo on 3 Social Media Platforms</p>
+        <div class="btn-group">
+            <a href="order.html" class="neon-btn">RESERVE SLOT</a>
+            <a href="https://wa.me/8801576940717" class="wa-btn">WHATSAPP SUPPORT</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>THE 1 BILLION PIXELS PLUS HOMEPAGE © 2026 Kawsar Tew. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    // ১০০% কার্যকর কপি ফাংশন
+    function copyText(text) {
+        const tempInput = document.createElement("input");
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999); // মোবাইলের জন্য
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        alert("Copied to clipboard: " + text);
+    }
+</script>
+</body>
+</html>
