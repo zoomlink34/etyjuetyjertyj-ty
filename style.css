@@ -2,35 +2,27 @@
 
 body { margin: 0; background: var(--bg); color: white; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
 
-/* জুম এরিয়া বা ম্যাপ এরিয়াটি এখন সাদা */
+header { position: relative; z-index: 100; background: rgba(0,0,0,0.9); border-bottom: 2px solid var(--primary); padding: 15px 0; }
+.ai-title { text-align: center; font-size: 30px; text-shadow: 0 0 15px var(--primary); margin: 0 0 10px 0; }
+
+.payment-pills { text-align: center; margin-bottom: 10px; }
+.payment-pills span { cursor: pointer; border: 1px solid var(--primary); padding: 5px 12px; border-radius: 20px; font-size: 12px; margin: 0 5px; color: var(--primary); }
+
+.social-links { text-align: center; }
+.social-links img { width: 30px; margin: 0 10px; filter: drop-shadow(0 0 5px var(--primary)); }
+
 #viewport {
-    width: 90vw; height: 550px; margin: 30px auto;
-    border: 3px solid var(--primary); border-radius: 20px;
-    overflow: hidden; position: relative; 
-    background: #ffffff; /* ম্যাপের ব্যাকগ্রাউন্ড সাদা */
+    width: 95vw; height: 50vh; margin: 20px auto;
+    border: 3px solid var(--primary); border-radius: 15px;
+    overflow: hidden; position: relative; background: #ffffff; z-index: 10;
 }
 
-#canvas-mover { transform-origin: 0 0; cursor: grab; position: absolute; }
+.floating-contact { position: relative; z-index: 100; text-align: center; padding: 20px; }
+.notice-bar { background: rgba(0, 255, 204, 0.1); padding: 10px; border-radius: 10px; border: 1px dashed var(--primary); margin-bottom: 15px; display: inline-block; }
 
-/* টুলটিপ বা পপ-আপ */
-#tooltip {
-    position: fixed; background: rgba(0, 0, 0, 0.9);
-    border: 1px solid var(--primary); padding: 12px; border-radius: 10px;
-    color: white; width: 200px; pointer-events: none; z-index: 2000;
-}
+.neon-btn { background: var(--primary); color: #000; padding: 12px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; }
+.wa-btn { background: #25D366; color: white; padding: 12px 25px; text-decoration: none; border-radius: 50px; margin-left: 10px; font-weight: bold; }
+
+#tooltip { position: fixed; background: #000; border: 1px solid var(--primary); padding: 10px; border-radius: 8px; z-index: 2000; }
 .hidden { display: none; }
-
-.glass-header { background: rgba(0,0,0,0.8); padding: 15px; border-bottom: 2px solid var(--primary); text-align: center; }
-.ai-title { font-size: 32px; color: #fff; text-shadow: 0 0 15px var(--primary); margin: 5px 0; }
-
-.payment-pills span { 
-    cursor: pointer; background: rgba(0, 255, 204, 0.1); 
-    padding: 5px 12px; border: 1px solid var(--primary); 
-    border-radius: 20px; font-size: 13px; margin: 0 5px; 
-    transition: 0.3s;
-}
-.payment-pills span:hover { background: var(--primary); color: #000; }
-
-.neon-btn { background: var(--primary); color: #000; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; }
-.wa-btn { background: #25D366; color: white; padding: 12px 30px; text-decoration: none; border-radius: 50px; margin-left: 10px; font-weight: bold; }
-footer { text-align: center; padding: 20px; font-size: 11px; color: #777; }
+footer { text-align: center; font-size: 11px; padding: 10px; color: #555; }
